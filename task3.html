@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .menu-icon {
+    display: none;
+    font-size: 25px;
+    cursor: pointer;
+    color: white;
+}
+
+.theme-btn {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        position: relative;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #151d32;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+#contact-form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #475569;
+    border-radius: 10px;
+    background: var(--card);
+    color: var(--text);
+    outline: none;
+}
+
+#contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+#form-message {
+    margin-top: 10px;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+
+    <a href="#home" class="logo">Anjali<span>.</span></a>
+
+    <div class="menu-icon" id="menu-icon">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button id="theme-toggle" class="theme-btn">
+        <i class="fas fa-moon"></i>
+    </button>
+
+</nav>
+<section id="contact" class="section contact">
+
+    <h2 class="heading">Contact <span>Me</span></h2>
+
+    <form id="contact-form">
+
+        <input type="text" id="name" placeholder="Your Name">
+
+        <input type="email" id="email" placeholder="Your Email">
+
+        <input type="text" id="subject" placeholder="Subject">
+
+        <textarea id="message" placeholder="Your Message"></textarea>
+
+        <button type="submit" class="btn">Send Message</button>
+
+        <p id="form-message"></p>
+
+    </form>
+
+</section>
+</body>
+<script>
+    const menuIcon = document.getElementById("menu-icon");
+
+const navLinks = document.getElementById("nav-links");
+
+menuIcon.addEventListener("click", function() {
+
+    navLinks.classList.toggle("active");
+
+});
+const themeBtn = document.getElementById("theme-toggle");
+
+themeBtn.addEventListener("click", function() {
+
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+
+        themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+
+    } else {
+
+        themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
+
+    }
+
+});
+const revealElements = document.querySelectorAll(
+    ".section, .hero-content, .hero-image"
+);
+
+revealElements.forEach(function(element) {
+
+    element.classList.add("reveal");
+
+});
+
+function revealOnScroll() {
+
+    revealElements.forEach(function(element) {
+
+        const windowHeight = window.innerHeight;
+
+        const elementTop = element.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 100) {
+
+            element.classList.add("active");
+
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+revealOnScroll();
+const contactForm = document.getElementById("contact-form");
+
+contactForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+
+    const email = document.getElementById("email").value.trim();
+
+    const subject = document.getElementById("subject").value.trim();
+
+    const message = document.getElementById("message").value.trim();
+
+    const formMessage = document.getElementById("form-message");
+
+    if (name === "" || email === "" || subject === "" || message === "") {
+
+        formMessage.style.color = "red";
+
+        formMessage.textContent = "Please fill all fields.";
+
+        return;
+
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+
+        formMessage.style.color = "red";
+
+        formMessage.textContent = "Please enter a valid email.";
+
+        return;
+
+    }
+
+    formMessage.style.color = "green";
+
+    formMessage.textContent = "Your form is valid!";
+
+    contactForm.reset();
+
+});
+document.querySelectorAll('.nav-links a').forEach(function(link) {
+
+    link.addEventListener('click', function(event) {
+
+        event.preventDefault();
+
+        const targetId = this.getAttribute('href');
+
+        const targetSection = document.querySelector(targetId);
+
+        targetSection.scrollIntoView({
+
+            behavior: "smooth"
+
+        });
+
+        navLinks.classList.remove("active");
+
+    });
+
+});
+</script>
+</html>
