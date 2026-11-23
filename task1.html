@@ -1,0 +1,375 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Anjali | Portfolio</title>
+
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0b1120;
+    color: white;
+}
+
+/* Navbar */
+
+header {
+    background: #111a2e;
+    padding: 20px 8%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+}
+
+.logo span {
+    color: #00d4ff;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #00d4ff;
+}
+
+/* Hero Section */
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 10%;
+    gap: 40px;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.welcome {
+    color: #00d4ff;
+    letter-spacing: 3px;
+}
+
+.hero-content h1 {
+    font-size: 42px;
+    margin: 15px 0;
+}
+
+.hero-content h1 span {
+    color: #00d4ff;
+}
+
+.hero-content h2 {
+    color: #a5b4fc;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    line-height: 1.8;
+    color: #cbd5e1;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: #00d4ff;
+    color: #0b1120;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background: white;
+}
+
+/* Profile Image */
+
+.hero-image img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #00d4ff;
+}
+
+/* About Section */
+
+.about {
+    padding: 80px 10%;
+    text-align: center;
+    background: #111a2e;
+}
+
+.heading {
+    font-size: 35px;
+    margin-bottom: 35px;
+}
+
+.heading span {
+    color: #00d4ff;
+}
+
+.about-content {
+    max-width: 750px;
+    margin: auto;
+}
+
+.about-content h3 {
+    color: #00d4ff;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    line-height: 2;
+    color: #cbd5e1;
+}
+
+/* Skills Section */
+
+.skills {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.skill-box {
+    background: #111a2e;
+    padding: 35px 20px;
+    border-radius: 15px;
+    border: 1px solid #263750;
+    transition: 0.3s;
+}
+
+.skill-box:hover {
+    transform: translateY(-10px);
+    border-color: #00d4ff;
+}
+
+.skill-box h3 {
+    color: #00d4ff;
+    margin-bottom: 15px;
+}
+
+.skill-box p {
+    color: #cbd5e1;
+}
+
+/* Contact Section */
+
+.contact {
+    background: #111a2e;
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.contact-box {
+    line-height: 2.5;
+    color: #cbd5e1;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #080d18;
+    color: #94a3b8;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .navbar ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 30px;
+    }
+
+    .hero-image img {
+        width: 220px;
+        height: 220px;
+    }
+}
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <h2 class="logo">Anjali<span>.</span></h2>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+            <p class="welcome">WELCOME TO MY PORTFOLIO</p>
+
+            <h1>Hi, I'm <span>Anjali Vishwakarma</span></h1>
+
+            <h2>Frontend Developer</h2>
+
+            <p>
+                I am a passionate B.Tech student interested in
+                web development and creating attractive websites.
+            </p>
+
+            <a href="#about" class="btn">Explore More</a>
+        </div>
+
+        <div class="hero-image">
+            <img src="images/profile.jpg" alt="Anjali Profile">
+        </div>
+
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+
+        <h2 class="heading">About <span>Me</span></h2>
+
+        <div class="about-content">
+
+            <h3>Frontend Developer & Student</h3>
+
+            <p>
+                Hello! My name is Anjali Vishwakarma.
+                I am currently pursuing B.Tech in Computer Science.
+
+                I enjoy learning new technologies and developing
+                creative websites using HTML, CSS and JavaScript.
+
+                My goal is to become a skilled software developer
+                and work on real-world projects.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+
+        <h2 class="heading">My <span>Skills</span></h2>
+
+        <div class="skills-container">
+
+            <div class="skill-box">
+                <h3>HTML</h3>
+                <p>Creating website structures.</p>
+            </div>
+
+            <div class="skill-box">
+                <h3>CSS</h3>
+                <p>Designing attractive websites.</p>
+            </div>
+
+            <div class="skill-box">
+                <h3>JavaScript</h3>
+                <p>Adding interactive features.</p>
+            </div>
+
+            <div class="skill-box">
+                <h3>C / C++</h3>
+                <p>Programming fundamentals.</p>
+            </div>
+
+            <div class="skill-box">
+                <h3>Tailwind CSS</h3>
+                <p>Creating responsive designs.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+
+        <h2 class="heading">Contact <span>Me</span></h2>
+
+        <div class="contact-box">
+
+            <p>Email: your-email@example.com</p>
+
+            <p>Location: Jabalpur, Madhya Pradesh</p>
+
+            <p>LinkedIn: Anjali Vishwakarma</p>
+
+            <a href="mailto:your-email@example.com" class="btn">
+                Send Email
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Anjali Vishwakarma | All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
